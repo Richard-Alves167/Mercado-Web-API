@@ -1,4 +1,7 @@
 
+using Mercado_Web_API.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Mercado_Web_API
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Mercado_Web_API
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<MercadoContext>(
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("MercadoAPIDatabase")));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

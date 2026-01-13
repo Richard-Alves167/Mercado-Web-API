@@ -1,7 +1,5 @@
-namespace Mercado_Web_API
-{
-    public class WeatherForecast
-    {
+namespace Mercado_Web_API.Models {
+    public class WeatherForecast {
         public DateOnly Date { get; set; }
 
         public int TemperatureC { get; set; }

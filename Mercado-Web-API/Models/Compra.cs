@@ -6,6 +6,7 @@ namespace Mercado_Web_API.Models {
             IdCliente = idCliente;
             Data = DateTime.Now;
         }
+        public int Id { get; set; }
         [Required]
         public int IdCliente { get; set; }
         public DateTime Data { get; set; }
