@@ -1,5 +1,7 @@
 
 using Mercado_Web_API.Data;
+using Mercado_Web_API.Data.Interface_Repository;
+using Mercado_Web_API.Data.RepositoryEF;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mercado_Web_API
@@ -18,6 +20,8 @@ namespace Mercado_Web_API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IClienteRepository, ClienteRepositoryEF>();
 
             var app = builder.Build();
 
