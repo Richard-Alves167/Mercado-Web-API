@@ -1,7 +1,7 @@
+using Mercado_Web_API.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mercado_Web_API.Controllers
-{
+namespace Mercado_Web_API.Controllers {
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
