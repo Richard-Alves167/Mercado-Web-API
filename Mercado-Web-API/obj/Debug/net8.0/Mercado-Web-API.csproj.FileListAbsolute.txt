@@ -166,7 +166,6 @@ C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\s
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Mercado-Web-API.props
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Mercado-Web-API.props
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\Mercado-.176CDF2C.Up2Date
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\Mercado-Web-API.dll
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\refint\Mercado-Web-API.dll

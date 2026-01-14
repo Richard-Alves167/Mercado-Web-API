@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace Mercado_Web_API.Models {
     public class Compra {
@@ -6,9 +7,11 @@ namespace Mercado_Web_API.Models {
             IdCliente = idCliente;
             Data = DateTime.Now;
         }
-        public int Id { get; set; }
+        public long Id { get; set; }
         [Required]
         public int IdCliente { get; set; }
+        public Cliente Cliente { get; set; }
         public DateTime Data { get; set; }
+        public ICollection<Item> Itens { get; set; }
     }
 }
