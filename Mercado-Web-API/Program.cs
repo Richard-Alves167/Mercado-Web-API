@@ -1,7 +1,9 @@
 
 using Mercado_Web_API.Data;
 using Mercado_Web_API.Data.Interface_Repository;
+using Mercado_Web_API.Data.Interface_Service;
 using Mercado_Web_API.Data.RepositoryEF;
+using Mercado_Web_API.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mercado_Web_API
@@ -22,6 +24,8 @@ namespace Mercado_Web_API
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IClienteRepository, ClienteRepositoryEF>();
+
+            builder.Services.AddScoped<IClienteService, ClienteService>();
 
             var app = builder.Build();
 

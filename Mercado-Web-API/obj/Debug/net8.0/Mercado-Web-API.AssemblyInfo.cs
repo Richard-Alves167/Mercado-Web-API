@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mercado-Web-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+586a2e2e389d58767dd798462f4a2cef9006fcb0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7108810f90da8f948f551a68d741d88239e3304")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mercado-Web-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mercado-Web-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
