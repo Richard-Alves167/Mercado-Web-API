@@ -13,6 +13,7 @@ namespace Mercado_Web_API.Data {
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Compra> Compras { get; set; }
         public DbSet<Item> Itens { get; set; }
+        public DbSet<FornecedorProduto> FornecedoresProdutos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.Entity<Compra>()
