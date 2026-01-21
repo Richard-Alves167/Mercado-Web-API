@@ -2,18 +2,6 @@
 
 namespace Mercado_Web_API.ModelDTOs {
     public class ProdutoCreateDTO {
-        public ProdutoCreateDTO(string nome, decimal preco, int estoque) {
-            Nome = nome;
-            Preco = preco;
-            Estoque = estoque;
-        }
-        public ProdutoCreateDTO(string nome, decimal preco, int estoque, string imagem,) {
-            Nome = nome;
-            Preco = preco;
-            Imagem = imagem;
-            Estoque = estoque;
-        }
-
         [Required]
         public string Nome { get; set; }
         [Required]

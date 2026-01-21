@@ -29,6 +29,7 @@ namespace Mercado_Web_API
 
             builder.Services.AddScoped<IClienteService, ClienteService>();
             builder.Services.AddScoped<IFornecedorService, FornecedorService>();
+            builder.Services.AddScoped<IProdutoService, ProdutoService>();
 
             var app = builder.Build();
 
