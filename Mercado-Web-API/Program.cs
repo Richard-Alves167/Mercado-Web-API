@@ -25,6 +25,7 @@ namespace Mercado_Web_API
 
             builder.Services.AddScoped<IClienteRepository, ClienteRepositoryEF>();
             builder.Services.AddScoped<IFornecedorRepository, FornecedorRepositoryEF>();
+            builder.Services.AddScoped<IProdutoRepository, ProdutoRepositoryEF>();
 
             builder.Services.AddScoped<IClienteService, ClienteService>();
             builder.Services.AddScoped<IFornecedorService, FornecedorService>();
