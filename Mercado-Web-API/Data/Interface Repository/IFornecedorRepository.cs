@@ -3,7 +3,7 @@ using Mercado_Web_API.Models.Relationships;
 
 namespace Mercado_Web_API.Data.Interface_Repository {
     public interface IFornecedorRepository {
-        public void Add(Fornecedor produto);
+        public void Add(Fornecedor fornecedor);
         public List<Fornecedor> GetAll();
         public Fornecedor GetById(int id);
         public List<Produto> GetAllProductsByFornecedorId(int idFornecedor);
