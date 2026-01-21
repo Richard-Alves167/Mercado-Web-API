@@ -5,7 +5,7 @@ using Mercado_Web_API.Models.Relationships;
 
 namespace Mercado_Web_API.Data.RepositoryEF {
     public class FornecedorRepositoryEF : IFornecedorRepository {
-        MercadoContext _context;
+        private MercadoContext _context;
         public FornecedorRepositoryEF(MercadoContext context) {
             _context = context;
         }

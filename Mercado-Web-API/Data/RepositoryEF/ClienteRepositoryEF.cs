@@ -3,7 +3,7 @@ using Mercado_Web_API.Models;
 
 namespace Mercado_Web_API.Data.RepositoryEF {
     public class ClienteRepositoryEF : IClienteRepository {
-        MercadoContext _context;
+        private MercadoContext _context;
         public ClienteRepositoryEF(MercadoContext context) {
             _context = context;
         }

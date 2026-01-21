@@ -6,7 +6,7 @@ using Mercado_Web_API.Models;
 
 namespace Mercado_Web_API.Service {
     public class ClienteService : IClienteService {
-        IClienteRepository _repos;
+        private IClienteRepository _repos;
         public ClienteService(IClienteRepository clienteRepository) {
             _repos = clienteRepository;
         }

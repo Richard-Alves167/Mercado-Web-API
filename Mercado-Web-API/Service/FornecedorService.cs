@@ -6,7 +6,7 @@ using Mercado_Web_API.Models.Relationships;
 
 namespace Mercado_Web_API.Service {
     public class FornecedorService : IFornecedorService {
-        IFornecedorRepository _repos;
+        private IFornecedorRepository _repos;
         public FornecedorService(IFornecedorRepository fornecedorRepository) {
             _repos = fornecedorRepository;
         }
