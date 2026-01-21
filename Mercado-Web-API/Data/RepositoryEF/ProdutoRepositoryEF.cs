@@ -5,7 +5,7 @@ using Mercado_Web_API.Models.Relationships;
 namespace Mercado_Web_API.Data.RepositoryEF {
     public class ProdutoRepositoryEF : IProdutoRepository {
         private MercadoContext _context;
-        ProdutoRepositoryEF(MercadoContext context) {
+        public ProdutoRepositoryEF(MercadoContext context) {
             _context = context;
         }
         public void Add(Produto produto) {
