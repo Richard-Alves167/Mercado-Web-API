@@ -25,12 +25,12 @@ namespace Mercado_Web_API.Data.RepositoryEF {
             _context.FornecedoresProdutos.Add(fornecedorProduto);
             _context.SaveChanges();
         }
-        public FornecedorProduto GetFornecedorProduto(int idFornecedor, int idProduto) {
-            return _context.FornecedoresProdutos.FirstOrDefault(fp => fp.IdFornecedor == idFornecedor && fp.IdProduto == idFornecedor);
+        public FornecedorProduto GetFornecedorProduto(int fornecedorId, int produtoId) {
+            return _context.FornecedoresProdutos.FirstOrDefault(fp => fp.FornecedorId == fornecedorId && fp.ProdutoId == produtoId);
         }
 
-        public List<Produto> GetAllProductsByFornecedorId(int idFornecedor) {
-            return _context.FornecedoresProdutos.Where(fp => fp.IdFornecedor == idFornecedor).Select(fp => fp.Produto).ToList() ;
+        public List<Produto> GetAllProductsByFornecedorId(int fornecedorId) {
+            return _context.FornecedoresProdutos.Where(fp => fp.FornecedorId == fornecedorId).Select(fp => fp.Produto).ToList() ;
         }
 
         public void RemoveFornecedorProduto(FornecedorProduto fornecedorProduto) {

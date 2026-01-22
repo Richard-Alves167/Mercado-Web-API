@@ -4,6 +4,7 @@ using Mercado_Web_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mercado_Web_API.Migrations
 {
     [DbContext(typeof(MercadoContext))]
-    partial class MercadoContextModelSnapshot : ModelSnapshot
+    [Migration("20260122004344_FixProductRangeNumber")]
+    partial class FixProductRangeNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,15 +61,15 @@ namespace Mercado_Web_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int>("ClienteId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ClienteId");
+                    b.HasIndex("IdCliente");
 
                     b.ToTable("Compras");
                 });
@@ -97,23 +100,23 @@ namespace Mercado_Web_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CompraId")
+                    b.Property<long>("IdCompra")
                         .HasColumnType("bigint");
+
+                    b.Property<int>("IdProduto")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProdutoId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompraId");
+                    b.HasIndex("IdCompra");
 
-                    b.HasIndex("ProdutoId");
+                    b.HasIndex("IdProduto");
 
                     b.ToTable("Itens");
                 });
@@ -147,13 +150,21 @@ namespace Mercado_Web_API.Migrations
 
             modelBuilder.Entity("Mercado_Web_API.Models.Relationships.FornecedorProduto", b =>
                 {
+                    b.Property<int>("IdFornecedor")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdProduto")
+                        .HasColumnType("int");
+
                     b.Property<int>("FornecedorId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProdutoId")
                         .HasColumnType("int");
 
-                    b.HasKey("FornecedorId", "ProdutoId");
+                    b.HasKey("IdFornecedor", "IdProduto");
+
+                    b.HasIndex("FornecedorId");
 
                     b.HasIndex("ProdutoId");
 
@@ -164,7 +175,7 @@ namespace Mercado_Web_API.Migrations
                 {
                     b.HasOne("Mercado_Web_API.Models.Cliente", "Cliente")
                         .WithMany("Compras")
-                        .HasForeignKey("ClienteId")
+                        .HasForeignKey("IdCliente")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -175,13 +186,13 @@ namespace Mercado_Web_API.Migrations
                 {
                     b.HasOne("Mercado_Web_API.Models.Compra", "Compra")
                         .WithMany("Itens")
-                        .HasForeignKey("CompraId")
+                        .HasForeignKey("IdCompra")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Mercado_Web_API.Models.Produto", "Produto")
                         .WithMany("Itens")
-                        .HasForeignKey("ProdutoId")
+                        .HasForeignKey("IdProduto")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

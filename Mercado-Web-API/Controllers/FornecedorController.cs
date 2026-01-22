@@ -41,9 +41,9 @@ namespace Mercado_Web_API.Controllers {
             }
             return NoContent();
         }
-        [HttpGet("{idFornecedor}/produtos")]
-        public ActionResult<List<Produto>> GetAllProdutosByFornedecorId(int idFornecedor) {
-            var produtos = _fornecedorService.GetProdutosByIdFornecedor(idFornecedor);
+        [HttpGet("{fornecedorId}/produtos")]
+        public ActionResult<List<Produto>> GetAllProdutosByFornedecorId(int fornecedorId) {
+            var produtos = _fornecedorService.GetProdutosByIdFornecedor(fornecedorId);
             if (produtos == null) {
                 return NotFound();
             }
@@ -52,14 +52,14 @@ namespace Mercado_Web_API.Controllers {
             }
             return produtos;
         }
-        [HttpPost("{idFornecedor}/produtos/{idProduto}")]
-        public IActionResult AddProdutoToFornecedor(int idFornecedor, int idProduto) {
-            var fornecedorProduto = _fornecedorService.AddProdutoToFornecedor(idFornecedor, idProduto);
-            return CreatedAtAction(nameof(GetAllProdutosByFornedecorId), new { idFornecedor = idFornecedor }, fornecedorProduto);
+        [HttpPost("{fornecedorId}/produtos/{produtoId}")]
+        public IActionResult AddProdutoToFornecedor(int fornecedorId, int produtoId) {
+            var fornecedorProduto = _fornecedorService.AddProdutoToFornecedor(fornecedorId, produtoId);
+            return CreatedAtAction(nameof(GetAllProdutosByFornedecorId), new { FornecedorId = fornecedorId, ProdutoId = produtoId }, fornecedorProduto);
         }
-        [HttpDelete("{idFornecedor}/produtos/{idProduto}")]
-        public IActionResult RemoveProdutoFromFornecedor(int idFornecedor, int idProduto) {
-            bool removed = _fornecedorService.RemoveProdutoFromFornecedor(idFornecedor, idProduto);
+        [HttpDelete("{fornecedorId}/produtos/{produtoId}")]
+        public IActionResult RemoveProdutoFromFornecedor(int fornecedorId, int produtoId) {
+            bool removed = _fornecedorService.RemoveProdutoFromFornecedor(fornecedorId, produtoId);
             if (!removed) {
                 return NotFound();
             }

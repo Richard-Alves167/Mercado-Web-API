@@ -19,19 +19,19 @@ namespace Mercado_Web_API.Data {
             modelBuilder.Entity<Compra>()
             .HasOne(c => c.Cliente)
             .WithMany(c => c.Compras)
-            .HasForeignKey(c => c.IdCliente)
+            .HasForeignKey(c => c.ClienteId)
             .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Item>()
             .HasOne(i => i.Compra)
             .WithMany(i => i.Itens)
-            .HasForeignKey(i => i.IdCompra)
+            .HasForeignKey(i => i.CompraId)
             .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Item>()
             .HasOne(i => i.Produto)
             .WithMany(i => i.Itens)
-            .HasForeignKey(i => i.IdProduto)
+            .HasForeignKey(i => i.ProdutoId)
             .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Fornecedor>()
@@ -40,7 +40,7 @@ namespace Mercado_Web_API.Data {
             .UsingEntity<FornecedorProduto>();
 
             modelBuilder.Entity<FornecedorProduto>()
-            .HasKey(fp => new {fp.IdFornecedor, fp.IdProduto});
+            .HasKey(fp => new {fp.FornecedorId, fp.ProdutoId});
         }
     }
 }

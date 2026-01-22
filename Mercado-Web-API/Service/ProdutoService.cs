@@ -44,8 +44,8 @@ namespace Mercado_Web_API.Service {
             }).ToList(); ;
             return produtosDTO;
         }
-        public ProdutoReadDTO UpdatePreco(int idProduto, decimal precoNovo) {
-            Produto produto = _repos.GetById(idProduto);
+        public ProdutoReadDTO UpdatePreco(int produtoId, decimal precoNovo) {
+            Produto produto = _repos.GetById(produtoId);
             if (produto == null) {
                 return null;
             }
@@ -63,8 +63,8 @@ namespace Mercado_Web_API.Service {
             return produtoDTO;
         }
 
-        public ProdutoReadDTO UpdateQuantidade(int idProduto, int quantidadeAdicionada) {
-            Produto produto = _repos.GetById(idProduto);
+        public ProdutoReadDTO UpdateQuantidade(int produtoId, int quantidadeAdicionada) {
+            Produto produto = _repos.GetById(produtoId);
             if (produto == null) {
                 return null;
             }
@@ -82,32 +82,32 @@ namespace Mercado_Web_API.Service {
             };
             return produtoDTO;
         }
-        public FornecedorProduto AddProdutoToFornecedor(int idFornecedor, int idProduto) {
-            FornecedorProduto fornecedorProduto = new FornecedorProduto(idFornecedor, idProduto);
+        public FornecedorProduto AddProdutoToFornecedor(int fornecedorId, int produtoId) {
+            FornecedorProduto fornecedorProduto = new FornecedorProduto(fornecedorId, produtoId);
             _repos.AddFornecedorProduto(fornecedorProduto);
             return fornecedorProduto;
         }
-        public FornecedorProduto GetProdutoFornecedor(int idFornecedor, int idProduto) {
-            FornecedorProduto fornecedorProduto = _repos.GetFornecedorProduto(idFornecedor, idProduto);
+        public FornecedorProduto GetProdutoFornecedor(int fornecedorId, int produtoId) {
+            FornecedorProduto fornecedorProduto = _repos.GetFornecedorProduto(fornecedorId, produtoId);
             if (fornecedorProduto == null) {
                 return null;
             }
             return fornecedorProduto;
         }
-        public List<FornecedorReadDTO> GetFornecedoresByIdProduto(int idProduto) {
-            Produto produto = _repos.GetById(idProduto);
+        public List<FornecedorReadDTO> GetFornecedoresByIdProduto(int produtoId) {
+            Produto produto = _repos.GetById(produtoId);
             if (produto == null) {
                 return null;
             }
-            List<FornecedorReadDTO> fornecedoresReadDTOs = _repos.GetAllFornecedoresByProdutoId(idProduto).Select(f => new FornecedorReadDTO {
+            List<FornecedorReadDTO> fornecedoresReadDTOs = _repos.GetAllFornecedoresByProdutoId(produtoId).Select(f => new FornecedorReadDTO {
                 Id = f.Id,
                 Nome = f.Nome
             }).ToList();
             return fornecedoresReadDTOs;
         }
 
-        public bool RemoveFornecedorFromProduto(int idFornecedor, int idProduto) {
-            FornecedorProduto fornecedorProduto = _repos.GetFornecedorProduto(idFornecedor, idProduto);
+        public bool RemoveFornecedorFromProduto(int fornecedorId, int produtoId) {
+            FornecedorProduto fornecedorProduto = _repos.GetFornecedorProduto(fornecedorId, produtoId);
             if (fornecedorProduto == null) {
                 return false;
             }

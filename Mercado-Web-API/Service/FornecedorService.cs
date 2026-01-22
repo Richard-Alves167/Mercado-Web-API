@@ -47,23 +47,23 @@ namespace Mercado_Web_API.Service {
             };
             return fornecedorReadDTO;
         }
-        public FornecedorProduto AddProdutoToFornecedor(int idFornecedor, int idProduto) {
-            FornecedorProduto fornecedorProduto = new FornecedorProduto(idFornecedor, idProduto);
+        public FornecedorProduto AddProdutoToFornecedor(int fornecedorId, int produtoId) {
+            FornecedorProduto fornecedorProduto = new FornecedorProduto(fornecedorId, produtoId);
             _repos.AddFornecedorProduto(fornecedorProduto);
             return fornecedorProduto;
         }
 
-        public List<Produto> GetProdutosByIdFornecedor(int idFornecedor) {
-            Fornecedor fornecedor = _repos.GetById(idFornecedor);
+        public List<Produto> GetProdutosByIdFornecedor(int fornecedorId) {
+            Fornecedor fornecedor = _repos.GetById(fornecedorId);
             if (fornecedor == null) {
                 return null;
             }
-            List<Produto> produtos = _repos.GetAllProductsByFornecedorId(idFornecedor);
+            List<Produto> produtos = _repos.GetAllProductsByFornecedorId(fornecedorId);
             return produtos;
         }
 
-        public bool RemoveProdutoFromFornecedor(int idFornecedor, int idProduto) {
-            FornecedorProduto fornecedorProduto = _repos.GetFornecedorProduto(idFornecedor, idProduto);
+        public bool RemoveProdutoFromFornecedor(int fornecedorId, int produtoId) {
+            FornecedorProduto fornecedorProduto = _repos.GetFornecedorProduto(fornecedorId, produtoId);
             if (fornecedorProduto == null) {
                 return false;
             }

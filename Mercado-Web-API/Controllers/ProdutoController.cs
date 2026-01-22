@@ -64,9 +64,9 @@ namespace Mercado_Web_API.Controllers {
                 return BadRequest(ex.Message);
             }
         }
-        [HttpGet("{idProduto}/fornecedores")]
-        public ActionResult<List<FornecedorReadDTO>> GetFornecedoresByProdutoId(int idProduto) {
-            var fornecedoresDTO = _produtoService.GetFornecedoresByIdProduto(idProduto);
+        [HttpGet("{produtoId}/fornecedores")]
+        public ActionResult<List<FornecedorReadDTO>> GetFornecedoresByProdutoId(int produtoId) {
+            var fornecedoresDTO = _produtoService.GetFornecedoresByIdProduto(produtoId);
             if (fornecedoresDTO == null) {
                 return NotFound();
             }
@@ -75,25 +75,25 @@ namespace Mercado_Web_API.Controllers {
             }
             return fornecedoresDTO;
         }
-        [HttpGet("{idProduto}/fornecedores/{idFornecedor}")]
-        public ActionResult<FornecedorProduto> GetFornecedorProduto(int idProduto, int idFornecedor) {
-            var fornecedorDTO = _produtoService.GetProdutoFornecedor(idProduto, idFornecedor);
+        [HttpGet("{produtoId}/fornecedores/{fornecedorId}")]
+        public ActionResult<FornecedorProduto> GetFornecedorProduto(int produtoId, int fornecedorId) {
+            var fornecedorDTO = _produtoService.GetProdutoFornecedor(produtoId, fornecedorId);
             if (fornecedorDTO == null) {
                 return NotFound();
             }
             return fornecedorDTO;
         }
-        [HttpPost("{idProduto}/fornecedores/{idFornecedor}")]
-        public IActionResult AddProdutoToFornecededor(int idProduto, int idFornecedor) {
-            var produtoFornecedor = _produtoService.AddProdutoToFornecedor(idProduto, idFornecedor);
+        [HttpPost("{produtoId}/fornecedores/{fornecedorId}")]
+        public IActionResult AddProdutoToFornecededor(int produtoId, int fornecedorId) {
+            var produtoFornecedor = _produtoService.AddProdutoToFornecedor(fornecedorId, produtoId);
             if (produtoFornecedor == null) {
                 return NotFound();
             }
-            return CreatedAtAction(nameof(GetById), new { idProduto = produtoFornecedor.IdProduto, idFornecedor = produtoFornecedor .IdFornecedor}, produtoFornecedor);
+            return CreatedAtAction(nameof(GetById), new { produtoId = produtoFornecedor.ProdutoId, fornecedorId = produtoFornecedor.FornecedorId}, produtoFornecedor);
         }
-        [HttpDelete("{idProduto}/fornecedores/{idFornecedor}")]
-        public IActionResult RemoveFornecedorFromProduto(int idProduto, int idFornecedor) {
-            bool removedFornecedor = _produtoService.RemoveFornecedorFromProduto(idProduto, idFornecedor);
+        [HttpDelete("{produtoId}/fornecedores/{fornecedorId}")]
+        public IActionResult RemoveFornecedorFromProduto(int produtoId, int fornecedorId) {
+            bool removedFornecedor = _produtoService.RemoveFornecedorFromProduto(fornecedorId, produtoId);
             if (!removedFornecedor) {
                 return NotFound();
             }
