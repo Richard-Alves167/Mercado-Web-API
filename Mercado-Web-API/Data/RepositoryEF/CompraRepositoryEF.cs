@@ -17,7 +17,7 @@ namespace Mercado_Web_API.Data.RepositoryEF {
             return compras;
         }
 
-        public Compra GetById(int id) {
+        public Compra GetById(long id) {
             var compra = _context.Compras.FirstOrDefault(c => c.Id == id);
             return compra;
         }
@@ -27,7 +27,7 @@ namespace Mercado_Web_API.Data.RepositoryEF {
             return compras;
         }
 
-        public List<Item> GetItensByCompraId(int compraId) {
+        public List<Item> GetItensByCompraId(long compraId) {
             var itens = _context.Itens.Where(i => i.CompraId == compraId).ToList();
             return itens;
         }

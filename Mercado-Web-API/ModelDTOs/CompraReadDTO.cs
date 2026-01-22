@@ -1,7 +1,7 @@
 ﻿namespace Mercado_Web_API.ModelDTOs {
     public class CompraReadDTO {
-        public int Id { get; set; }
-        public DateTime DataCompra { get; set; }
+        public long Id { get; set; }
+        public DateTime Data { get; set; }
         public int ClienteId { get; set; }
     }
 }
