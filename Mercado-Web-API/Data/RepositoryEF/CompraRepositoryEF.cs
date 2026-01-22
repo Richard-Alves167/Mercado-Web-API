@@ -22,11 +22,6 @@ namespace Mercado_Web_API.Data.RepositoryEF {
             return compra;
         }
 
-        public List<Compra> GetComprasByClienteId(int clienteId) {
-            var compras = _context.Compras.Where(c => c.ClienteId == clienteId).ToList();
-            return compras;
-        }
-
         public List<Item> GetItensByCompraId(long compraId) {
             var itens = _context.Itens.Where(i => i.CompraId == compraId).ToList();
             return itens;

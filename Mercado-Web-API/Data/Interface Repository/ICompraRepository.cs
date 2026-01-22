@@ -5,7 +5,6 @@ namespace Mercado_Web_API.Data.Interface_Repository {
         public void Add(Compra compra);
         public List<Compra> GetAll();
         public Compra GetById(long id);
-        public List<Compra> GetComprasByClienteId(int clienteId);
         public List<Item> GetItensByCompraId(long compraId);
         public void Delete(Compra compra);
     }

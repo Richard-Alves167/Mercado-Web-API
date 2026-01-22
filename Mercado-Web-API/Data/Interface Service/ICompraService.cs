@@ -6,7 +6,6 @@ namespace Mercado_Web_API.Data.Interface_Service {
         public Compra CreateCompra(CompraCreateDTO compradto);
         public CompraReadDTO GetCompraById(long id);
         public List<CompraReadDTO> GetAllCompras();
-        public List<CompraReadDTO> GetAllComprasByIdCliente(int clienteId);
         public List<Item> GetItensByCompraId(long compraId);
         public bool DeleteCompra(long id);
     }

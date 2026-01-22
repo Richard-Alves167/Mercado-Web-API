@@ -35,6 +35,17 @@ namespace Mercado_Web_API.Controllers {
             var cliente = _clienteService.AddCliente(clienteDTO);
             return CreatedAtAction(nameof(GetById), new { id = cliente.Id }, cliente);
         }
+        [HttpGet("{id}/compras")]
+        public ActionResult<List<CompraReadDTO>> GetAllComprasByIdCliente(int id) {
+            var compraDTOs = _clienteService.GetAllComprasByIdCliente(id);
+            if (compraDTOs == null) {
+                return NotFound();
+            }
+            if (!compraDTOs.Any()) {
+                return NoContent();
+            }
+            return compraDTOs;
+        }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id) {
             bool deleted = _clienteService.DeleteCliente(id);

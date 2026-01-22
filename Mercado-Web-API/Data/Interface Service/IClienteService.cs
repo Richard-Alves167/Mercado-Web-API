@@ -7,6 +7,7 @@ namespace Mercado_Web_API.Data.Interface_Service {
         public ClienteReadDTO GetClienteByEmailAndSenha(string email, string senha);
         public ClienteReadDTO GetClienteById(int id);
         public List<ClienteReadDTO> GetAllClientes();
+        public List<CompraReadDTO> GetAllComprasByIdCliente(int clienteId);
         public bool DeleteCliente(int id);
     }
 }

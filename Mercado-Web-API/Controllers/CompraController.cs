@@ -39,6 +39,9 @@ namespace Mercado_Web_API.Controllers {
             if (itensDTO == null) {
                 return NotFound();
             }
+            if (!itensDTO.Any()) {
+                return NoContent();
+            }
             return itensDTO;
         }
         [HttpDelete("{id}")]

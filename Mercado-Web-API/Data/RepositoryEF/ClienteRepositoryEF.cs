@@ -22,7 +22,10 @@ namespace Mercado_Web_API.Data.RepositoryEF {
         public Cliente GetByEmailAndSenha(string email, string senha) {
             return _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
         }
-
+        public List<Compra> GetComprasByClienteId(int clienteId) {
+            var compras = _context.Compras.Where(c => c.ClienteId == clienteId).ToList();
+            return compras;
+        }
         public void Delete(Cliente cliente) {
             _context.Clientes.Remove(cliente);
             _context.SaveChanges();

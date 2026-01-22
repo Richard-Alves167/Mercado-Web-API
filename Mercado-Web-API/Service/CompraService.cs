@@ -33,20 +33,6 @@ namespace Mercado_Web_API.Service {
             return comprasDTOs;
         }
 
-        public List<CompraReadDTO> GetAllComprasByIdCliente(int clienteId) {
-            Cliente cliente = _clienteRepository.GetById(clienteId);
-            if (cliente == null) {
-                return null;
-            }
-            List<Compra> compras = _repos.GetComprasByClienteId(clienteId);
-            List<CompraReadDTO> compraDTOs = compras.Select(c => new CompraReadDTO {
-                Id = c.Id,
-                ClienteId = c.ClienteId,
-                Data = c.Data
-            }).ToList();
-            return compraDTOs;
-        }
-
         public CompraReadDTO GetCompraById(long id) {
             Compra compra = _repos.GetById(id);
             if (compra == null) {
