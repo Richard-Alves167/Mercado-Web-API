@@ -42,7 +42,7 @@ namespace Mercado_Web_API.Controllers {
             return NoContent();
         }
         [HttpGet("{fornecedorId}/produtos")]
-        public ActionResult<List<Produto>> GetAllProdutosByFornedecorId(int fornecedorId) {
+        public ActionResult<List<ProdutoReadDTO>> GetAllProdutosByFornedecorId(int fornecedorId) {
             var produtos = _fornecedorService.GetProdutosByIdFornecedor(fornecedorId);
             if (produtos == null) {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace Mercado_Web_API.Controllers {
         [HttpPost("{fornecedorId}/produtos/{produtoId}")]
         public IActionResult AddProdutoToFornecedor(int fornecedorId, int produtoId) {
             var fornecedorProduto = _fornecedorService.AddProdutoToFornecedor(fornecedorId, produtoId);
-            return CreatedAtAction(nameof(GetAllProdutosByFornedecorId), new { FornecedorId = fornecedorId, ProdutoId = produtoId }, fornecedorProduto);
+            return NoContent();
         }
         [HttpDelete("{fornecedorId}/produtos/{produtoId}")]
         public IActionResult RemoveProdutoFromFornecedor(int fornecedorId, int produtoId) {

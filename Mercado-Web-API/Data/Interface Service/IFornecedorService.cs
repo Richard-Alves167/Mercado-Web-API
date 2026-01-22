@@ -9,7 +9,7 @@ namespace Mercado_Web_API.Data.Interface_Service {
         public List<FornecedorReadDTO> GetAllFornecedores();
         public FornecedorProduto AddProdutoToFornecedor(int idFornecedor, int idProduto);
         public bool RemoveProdutoFromFornecedor(int idFornecedor, int idProduto);
-        public List<Produto> GetProdutosByIdFornecedor(int idFornecedor);
+        public List<ProdutoReadDTO> GetProdutosByIdFornecedor(int idFornecedor);
         public bool DeleteFornecedor(int id);
     }
 }

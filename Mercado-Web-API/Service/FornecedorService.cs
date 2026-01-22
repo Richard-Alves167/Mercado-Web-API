@@ -53,12 +53,18 @@ namespace Mercado_Web_API.Service {
             return fornecedorProduto;
         }
 
-        public List<Produto> GetProdutosByIdFornecedor(int fornecedorId) {
+        public List<ProdutoReadDTO> GetProdutosByIdFornecedor(int fornecedorId) {
             Fornecedor fornecedor = _repos.GetById(fornecedorId);
             if (fornecedor == null) {
                 return null;
             }
-            List<Produto> produtos = _repos.GetAllProductsByFornecedorId(fornecedorId);
+            List<ProdutoReadDTO> produtos = _repos.GetAllProductsByFornecedorId(fornecedorId).Select(p => new ProdutoReadDTO {
+                Id = p.Id,
+                Nome = p.Nome,
+                Preco = p.Preco,
+                Estoque = p.Estoque,
+                Imagem = p.Imagem
+            }).ToList();
             return produtos;
         }
 
