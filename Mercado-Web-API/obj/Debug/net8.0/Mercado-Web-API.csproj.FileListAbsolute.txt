@@ -172,3 +172,4 @@ C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\r
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\Mercado-Web-API.pdb
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\Mercado-Web-API.genruntimeconfig.cache
 C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\ref\Mercado-Web-API.dll
+C:\Users\Usuario\source\repos\Mercado-Web-API\Mercado-Web-API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

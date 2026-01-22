@@ -40,26 +40,26 @@ namespace Mercado_Web_API.Controllers {
             }
             return NoContent();
         }
-        [HttpPut("{id}/preco")]
-        public ActionResult<ProdutoReadDTO> UpdatePreco(int id, [FromBody] decimal precoNovo) {
+        [HttpPatch("{id}/preco")]
+        public ActionResult<ProdutoReadDTO> UpdatePreco(int id, [FromBody] ProdutoUpdatePrecoDTO produtoPrecoDTO) {
             try {
-                var produtoDTO = _produtoService.UpdatePreco(id, precoNovo);
+                var produtoDTO = _produtoService.UpdatePreco(id, produtoPrecoDTO.Preco);
                 if (produtoDTO == null) {
                     return NotFound();
                 }
-                return produtoDTO;
+                return NoContent();
             } catch (ArgumentException ex) {
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut("{id}/quantidade")]
-        public ActionResult<ProdutoReadDTO> UpdateQuantidade(int id, [FromBody] int quantidadeAdicionada) {
+        [HttpPatch("{id}/quantidade")]
+        public ActionResult<ProdutoReadDTO> UpdateQuantidade(int id, [FromBody] ProdutoUpdateQuantidadeDTO produtoQuantidadeDTO) {
             try {
-                var produtoDTO = _produtoService.UpdatePreco(id, quantidadeAdicionada);
+                var produtoDTO = _produtoService.UpdateQuantidade(id, produtoQuantidadeDTO.Quantidade);
                 if (produtoDTO == null) {
                     return NotFound();
                 }
-                return produtoDTO;
+                return NoContent();
             } catch (ArgumentException ex) {
                 return BadRequest(ex.Message);
             }
@@ -77,7 +77,7 @@ namespace Mercado_Web_API.Controllers {
         }
         [HttpGet("{produtoId}/fornecedores/{fornecedorId}")]
         public ActionResult<FornecedorProduto> GetFornecedorProduto(int produtoId, int fornecedorId) {
-            var fornecedorDTO = _produtoService.GetProdutoFornecedor(produtoId, fornecedorId);
+            var fornecedorDTO = _produtoService.GetProdutoFornecedor(fornecedorId, produtoId);
             if (fornecedorDTO == null) {
                 return NotFound();
             }
@@ -89,7 +89,7 @@ namespace Mercado_Web_API.Controllers {
             if (produtoFornecedor == null) {
                 return NotFound();
             }
-            return CreatedAtAction(nameof(GetById), new { produtoId = produtoFornecedor.ProdutoId, fornecedorId = produtoFornecedor.FornecedorId}, produtoFornecedor);
+            return NoContent();
         }
         [HttpDelete("{produtoId}/fornecedores/{fornecedorId}")]
         public IActionResult RemoveFornecedorFromProduto(int produtoId, int fornecedorId) {
