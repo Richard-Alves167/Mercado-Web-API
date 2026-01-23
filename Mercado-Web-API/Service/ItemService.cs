@@ -23,7 +23,7 @@ namespace Mercado_Web_API.Service {
             if (compra == null) {
                 return null;
             }
-            Item item = new Item(itemdto.CompraId, itemdto.ProdutoId, itemdto.Preco, itemdto.Quantidade);
+            Item item = new Item(itemdto.CompraId, itemdto.ProdutoId, produto.Preco, itemdto.Quantidade);
             _repos.Add(item);
             return new ItemReadDTO {
                 Id = item.Id,
