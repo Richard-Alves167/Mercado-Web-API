@@ -46,13 +46,20 @@ namespace Mercado_Web_API.Service {
             return compraDTO;
         }
 
-        public List<Item> GetItensByCompraId(long compraId) {
+        public List<ItemReadDTO> GetItensByCompraId(long compraId) {
             Compra compra = _repos.GetById(compraId);
             if (compra == null) {
                 return null;
             }
             List<Item> itens = _repos.GetItensByCompraId(compraId);
-            return itens;
+            List<ItemReadDTO> itensDTOs = itens.Select(i => new ItemReadDTO {
+                Id = i.Id,
+                CompraId = i.CompraId,
+                ProdutoId = i.ProdutoId,
+                Quantidade = i.Quantidade,
+                Preco = i.Preco
+            }).ToList();
+            return itensDTOs;
         }
         public bool DeleteCompra(long id) {
             Compra compra = _repos.GetById(id);

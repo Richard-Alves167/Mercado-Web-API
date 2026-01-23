@@ -34,7 +34,7 @@ namespace Mercado_Web_API.Controllers {
             return compraReadDTO;
         }
         [HttpGet("{id}/itens")]
-        public ActionResult<List<Item>> GetItensByCompraId(long id) {
+        public ActionResult<List<ItemReadDTO>> GetItensByCompraId(long id) {
             var itensDTO = _compraService.GetItensByCompraId(id);
             if (itensDTO == null) {
                 return NotFound();
